@@ -41,22 +41,6 @@ pprint(reg_users)
 for counter in reg_users:
     global count
     count += 1
-"""
-previous_count = 0
-while True:
-    reg_users = fbs.get('/Users', None)
-    #pprint(reg_users)
-
-    count = 0
-    for counter in reg_users:
-        count += 1;
-
-    if count == previous_count:
-        x = 0
-    else:
-        print count
-        previous_count = count
-"""
 
 def log_user(response):
     global count
@@ -144,7 +128,13 @@ while True:
     #
     while cancel == False:
         try:
-            fbs.get_async('/Users', None, callback=log_user)
+            response = fbs.get('/Users', None)
+            global count
+            global cancel
+            if len(response) != count:
+                count = len(response)
+                cancel = True
+                print(count)
             # loop around each column in the dotarray
             for col in range(len(dotarray[0])):
                 for row in range(8):
