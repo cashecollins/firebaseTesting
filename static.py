@@ -80,7 +80,7 @@ while True:
     # assign the command line args for the text and colour
     #
 
-    textinput = str(count)
+    textinput = str("{:,}".format(count*100))
     colour = 1
 
 
