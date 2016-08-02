@@ -34,6 +34,7 @@ user.firebase_auth_token = token
 global cancel
 global count
 
+"""
 previous_count = 0
 while True:
     reg_users = fbs.get('/Users', None)
@@ -48,7 +49,7 @@ while True:
     else:
         print count
         previous_count = count
-
+"""
 
 def log_user(response):
     global count
