@@ -21,21 +21,23 @@
 ###################################################
 import time
 import RPi.GPIO as gpio
+
 gpio.setwarnings(False)
 gpio.setmode(gpio.BOARD)
 
 ###################################################
 # give the gpio pins labels that match the LDP-8008
 ###################################################
-R1=11   
-G1=12   
-EN=8  
-A=3  
-B=5  
-C=7  
-D=10  
-L=13  
-S=15  
+R1 = 11
+G1 = 12
+EN = 8
+A = 3
+B = 5
+C = 7
+D = 10
+L = 13
+S = 15
+
 
 ####################################
 # init function
@@ -45,24 +47,26 @@ S=15
 ####################################
 
 def init():
-	# set GPIO pins as outputs
-	gpio.setup(R1,gpio.OUT)
-	gpio.setup(G1,gpio.OUT)
-	gpio.setup(EN,gpio.OUT)
-	gpio.setup(A,gpio.OUT)
-	gpio.setup(B,gpio.OUT)
-	gpio.setup(C,gpio.OUT)
-	gpio.setup(D,gpio.OUT)
-	gpio.setup(L,gpio.OUT)
-	gpio.setup(S,gpio.OUT)
+    # set GPIO pins as outputs
+    gpio.setup(R1, gpio.OUT)
+    gpio.setup(G1, gpio.OUT)
+    gpio.setup(EN, gpio.OUT)
+    gpio.setup(A, gpio.OUT)
+    gpio.setup(B, gpio.OUT)
+    gpio.setup(C, gpio.OUT)
+    gpio.setup(D, gpio.OUT)
+    gpio.setup(L, gpio.OUT)
+    gpio.setup(S, gpio.OUT)
 
-	#initialise the output pins
-	gpio.output(R1,1)
-	gpio.output(G1,1)
-	gpio.output(S,1)
-	gpio.output(L,0)
-	gpio.output(EN,0)
-	clear()
+    # initialise the output pins
+    gpio.output(R1, 1)
+    gpio.output(G1, 1)
+    gpio.output(S, 1)
+    gpio.output(L, 0)
+    gpio.output(EN, 0)
+    clear()
+
+
 ####################################
 # end init function
 ####################################
@@ -75,13 +79,15 @@ def init():
 # bits to blank and turns off display
 ####################################
 def clear():
-		gpio.output(R1,1)
-		gpio.output(G1,1)
-		for i in range(80):
-			gpio.output(S,1)
-			gpio.output(S,0)
-			gpio.output(S,1)
-		displayoff()
+    gpio.output(R1, 1)
+    gpio.output(G1, 1)
+    for i in range(80):
+        gpio.output(S, 1)
+        gpio.output(S, 0)
+        gpio.output(S, 1)
+    displayoff()
+
+
 ####################################
 # end init function
 ####################################
@@ -94,9 +100,11 @@ def clear():
 # into the first column of the register
 ####################################
 def shift():
-		gpio.output(S,1)
-		gpio.output(S,0)
-		gpio.output(S,1)
+    gpio.output(S, 1)
+    gpio.output(S, 0)
+    gpio.output(S, 1)
+
+
 ####################################
 # end shift function
 ####################################
@@ -108,18 +116,20 @@ def shift():
 # 0=blank 1=red 2=green 3=orange
 ####################################
 def colour(n):
-	if n == 3: #orange	
-		gpio.output(R1,0)
-		gpio.output(G1,0)
-	elif n == 2: #green
-		gpio.output(R1,1)
-		gpio.output(G1,0)
-	elif n == 1: #red
-		gpio.output(R1,0)
-		gpio.output(G1,1)
-	else: # off
-		gpio.output(R1,1)
-		gpio.output(G1,1)
+    if n == 3:  # orange
+        gpio.output(R1, 0)
+        gpio.output(G1, 0)
+    elif n == 2:  # green
+        gpio.output(R1, 1)
+        gpio.output(G1, 0)
+    elif n == 1:  # red
+        gpio.output(R1, 0)
+        gpio.output(G1, 1)
+    else:  # off
+        gpio.output(R1, 1)
+        gpio.output(G1, 1)
+
+
 ####################################
 # end colour function
 ####################################
@@ -132,21 +142,23 @@ def colour(n):
 # 0=blank 1=red 2=green 3=orange
 ####################################
 def colourshift(n):
-	if n == 3: #orange	
-		gpio.output(R1,0)
-		gpio.output(G1,0)
-	elif n == 2: #green
-		gpio.output(R1,1)
-		gpio.output(G1,0)
-	elif n == 1: #red
-		gpio.output(R1,0)
-		gpio.output(G1,1)
-	else: # off
-		gpio.output(R1,1)
-		gpio.output(G1,1)
-	gpio.output(S,1)
-	gpio.output(S,0)
-	gpio.output(S,1)
+    if n == 3:  # orange
+        gpio.output(R1, 0)
+        gpio.output(G1, 0)
+    elif n == 2:  # green
+        gpio.output(R1, 1)
+        gpio.output(G1, 0)
+    elif n == 1:  # red
+        gpio.output(R1, 0)
+        gpio.output(G1, 1)
+    else:  # off
+        gpio.output(R1, 1)
+        gpio.output(G1, 1)
+    gpio.output(S, 1)
+    gpio.output(S, 0)
+    gpio.output(S, 1)
+
+
 ####################################
 # end colour function
 ####################################
@@ -157,52 +169,98 @@ def colourshift(n):
 # displays the register on a row 
 # row_value = 0-7
 ####################################
-def showrow(n):                
-	if n == 7:
-		gpio.output(A,1)
-		gpio.output(B,1)
-		gpio.output(C,1)
-		gpio.output(D,0)
-	elif n == 6:
-		gpio.output(A,0)
-		gpio.output(B,1)
-		gpio.output(C,1)
-		gpio.output(D,0)
-	elif n == 5:
-		gpio.output(A,1)
-		gpio.output(B,0)
-		gpio.output(C,1)
-		gpio.output(D,0)
-	elif n == 4:
-		gpio.output(A,0)
-		gpio.output(B,0)
-		gpio.output(C,1)
-		gpio.output(D,0)
-	elif n == 3:
-		gpio.output(A,1)
-		gpio.output(B,1)
-		gpio.output(C,0)
-		gpio.output(D,0)
-	elif n == 2:
-		gpio.output(A,0)
-		gpio.output(B,2)
-		gpio.output(C,0)
-		gpio.output(D,0)
-	elif n == 1:
-		gpio.output(A,1)
-		gpio.output(B,0)
-		gpio.output(C,0)
-		gpio.output(D,0)
-	else:
-		gpio.output(A,0)
-		gpio.output(B,0)
-		gpio.output(C,0)
-		gpio.output(D,0)
-	# latch the data
-	gpio.output(L,1)
-	gpio.output(L,0)
-	# display the row
-	gpio.output(EN,1)
+def showrow(n):
+
+    """
+    if n == 7:
+        gpio.output(A,1)
+        gpio.output(B,1)
+        gpio.output(C,1)
+        gpio.output(D,0)
+    elif n == 6:
+        gpio.output(A,0)
+        gpio.output(B,1)
+        gpio.output(C,1)
+        gpio.output(D,0)
+    elif n == 5:
+        gpio.output(A,1)
+        gpio.output(B,0)
+        gpio.output(C,1)
+        gpio.output(D,0)
+    elif n == 4:
+        gpio.output(A,0)
+        gpio.output(B,0)
+        gpio.output(C,1)
+        gpio.output(D,0)
+    elif n == 3:
+        gpio.output(A,1)
+        gpio.output(B,1)
+        gpio.output(C,0)
+        gpio.output(D,0)
+    elif n == 2:
+        gpio.output(A,0)
+        gpio.output(B,2)
+        gpio.output(C,0)
+        gpio.output(D,0)
+    elif n == 1:
+        gpio.output(A,1)
+        gpio.output(B,0)
+        gpio.output(C,0)
+        gpio.output(D,0)
+    else:
+        gpio.output(A,0)
+        gpio.output(B,0)
+        gpio.output(C,0)
+        gpio.output(D,0)
+    """
+
+    gpio.output(A, 1)
+    gpio.output(B, 1)
+    gpio.output(C, 1)
+    gpio.output(D, 0)
+
+    gpio.output(A, 0)
+    gpio.output(B, 1)
+    gpio.output(C, 1)
+    gpio.output(D, 0)
+
+    gpio.output(A, 1)
+    gpio.output(B, 0)
+    gpio.output(C, 1)
+    gpio.output(D, 0)
+
+    gpio.output(A, 0)
+    gpio.output(B, 0)
+    gpio.output(C, 1)
+    gpio.output(D, 0)
+
+    gpio.output(A, 1)
+    gpio.output(B, 1)
+    gpio.output(C, 0)
+    gpio.output(D, 0)
+
+    gpio.output(A, 0)
+    gpio.output(B, 2)
+    gpio.output(C, 0)
+    gpio.output(D, 0)
+
+    gpio.output(A, 1)
+    gpio.output(B, 0)
+    gpio.output(C, 0)
+    gpio.output(D, 0)
+
+    gpio.output(A, 0)
+    gpio.output(B, 0)
+    gpio.output(C, 0)
+    gpio.output(D, 0)
+
+    # latch the data
+    gpio.output(L, 1)
+    gpio.output(L, 0)
+    # display the row
+    gpio.output(EN, 1)
+
+
 ####################################
 # end showrow function
 ####################################
@@ -213,7 +271,9 @@ def showrow(n):
 # turns off the display 
 ####################################
 def displayoff():
-	gpio.output(EN,0)
+    gpio.output(EN, 0)
+
+
 ####################################
 # end displayoff function
 ####################################
@@ -224,7 +284,8 @@ def displayoff():
 # turns on the display 
 ####################################
 def displayon():
-	gpio.output(EN,1)
+    gpio.output(EN, 1)
+
 ####################################
 # end displayon function
 ####################################
