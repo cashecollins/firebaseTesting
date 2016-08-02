@@ -34,6 +34,12 @@ user.firebase_auth_token = token
 global cancel
 global count
 
+reg_users = fbs.get('/Users', None)
+pprint(reg_users)
+
+for counter in reg_users:
+    global count
+    count += 1
 """
 previous_count = 0
 while True:
@@ -100,7 +106,7 @@ while True:
 
     textinput = str(count)
     # textinput=str(sys.argv[1])
-    colour = int(sys.argv[1])
+    colour = 1
 
     # append extra characters to text input to allow for wrap-around
     textinput += '  ::  '
