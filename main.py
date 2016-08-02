@@ -30,3 +30,9 @@ print user.firebase_auth_token
 reg_users = fbs.get('/Users', None)
 pprint(reg_users)
 
+count = 0
+for i in reg_users:
+    count += 1;
+
+print count
+
