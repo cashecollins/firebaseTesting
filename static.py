@@ -62,8 +62,8 @@ while True:
     # function to read the matrix array and output the values to the display device
     #
     def showmatrix():
-        for row in reversed(range(8)):
-            for col in reversed(range(80)):
+        for row in range(8):
+            for col in range(80):
                 ldp.colourshift(matrix[row][col])
             ldp.showrow(row)
     # end def
@@ -80,7 +80,7 @@ while True:
     # assign the command line args for the text and colour
     #
 
-    textinput = str("{:,}".format(count*100))
+    textinput = str("{:,}".format(count*1000))
     colour = 1
 
 
