@@ -24,15 +24,20 @@ print authentication.extra
 #AUTHENTICATIONS
 user = authentication.get_user()
 user.firebase_auth_token = token
-print user.firebase_auth_token
+#print user.firebase_auth_token
 
+previous_count = 0
+while True:
+    reg_users = fbs.get('/Users', None)
+    #pprint(reg_users)
 
-reg_users = fbs.get('/Users', None)
-pprint(reg_users)
+    count = 0
+    for i in reg_users:
+        count += 1;
 
-count = 0
-for i in reg_users:
-    count += 1;
-
-print count
+    if count == previous_count:
+        x = 0
+    else:
+        print count
+        previous_count = count
 
