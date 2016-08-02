@@ -41,22 +41,7 @@ pprint(reg_users)
 for counter in reg_users:
     global count
     count += 1
-"""
-previous_count = 0
-while True:
-    reg_users = fbs.get('/Users', None)
-    #pprint(reg_users)
 
-    count = 0
-    for counter in reg_users:
-        count += 1;
-
-    if count == previous_count:
-        x = 0
-    else:
-        print count
-        previous_count = count
-"""
 
 def log_user(response):
     global count
@@ -74,21 +59,9 @@ while True:
     #
     matrix = [[0 for i in xrange(80)] for i in xrange(8)]
 
-
-    #
-    # function to shift left all the vaules of the matrix array
-    # this allows us to put new data in the first column
-    #
-    def shiftmatrix():
-        for row in range(8):
-            for col in range(79, 0, -1):
-                matrix[row][col] = matrix[row][col - 1]
-    # end def
-
     # function to read the matrix array and output the values to the display device
     #
     def showmatrix():
-        ldp.displayoff()
         for row in reversed(range(8)):
             for col in reversed(range(80)):
                 ldp.colourshift(matrix[row][col])
@@ -108,7 +81,6 @@ while True:
     #
 
     textinput = str(count)
-    # textinput=str(sys.argv[1])
     colour = 1
 
 
