@@ -89,7 +89,7 @@ while True:
     # assign the command line args for the text and colour
     #
 
-    textinput = str(count)
+    textinput = str("{:,}".format(count*1000))
     # textinput=str(sys.argv[1])
     colour = 1
 
@@ -126,6 +126,7 @@ while True:
     #
     # Continually output to the display until Ctrl-C
     #
+    check = 0
     while cancel == False:
         try:
             """
@@ -135,8 +136,9 @@ while True:
                 cancel = True
                 print(count)
             """
-
-            fbs.get_async('/Users', None, callback=log_user)
+            if check > 10:
+                fbs.get_async('/Users', None, callback=log_user)
+                check = 0
             # loop around each column in the dotarray
             for col in range(len(dotarray[0])):
                 for row in range(8):
@@ -146,6 +148,7 @@ while True:
                 showmatrix()
                 # shift the matrix left ready for the next column
                 shiftmatrix()
+            check += 1
         except KeyboardInterrupt:
             ldp.clear()
             print
