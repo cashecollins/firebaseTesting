@@ -33,7 +33,8 @@ user.firebase_auth_token = token
 
 global cancel
 global count
-
+count = 0
+cancel = False
 reg_users = fbs.get('/Users', None)
 pprint(reg_users)
 
