@@ -162,7 +162,7 @@ while True:
     #
     while cancel == False:
         try:
-            fbs.get_async('/Users', None, callback=log_user)
+            #fbs.get_async('/Users', None, callback=log_user)
             showmatrix()
 
         except KeyboardInterrupt:
