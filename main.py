@@ -128,13 +128,15 @@ while True:
     #
     while cancel == False:
         try:
+            """
             response = fbs.get('/Users', None)
-            global count
-            global cancel
             if len(response) != count:
                 count = len(response)
                 cancel = True
                 print(count)
+            """
+
+            fbs.get_async('/Users', None, callback=log_user)
             # loop around each column in the dotarray
             for col in range(len(dotarray[0])):
                 for row in range(8):
