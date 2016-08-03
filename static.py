@@ -2,6 +2,7 @@
 from firebase import firebase
 from firebase_token_generator import create_token
 from pprint import pprint
+import time
 
 import sys
 import fontv
@@ -138,6 +139,8 @@ while True:
     #
     check = 0
     showmatrix()
+    ldp.displayon()
+    time.sleep(10)
     while cancel == False:
         try:
             if check > 100:
