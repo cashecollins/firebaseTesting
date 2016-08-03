@@ -72,7 +72,7 @@ while True:
             #time.sleep(1)
             #ldp.latch()
             #time.sleep(1)
-        ldp.displayon()
+            ldp.displayon()
     # end def
 
     #
@@ -141,8 +141,7 @@ while True:
     #
     check = 0
     showmatrix()
-    ldp.displayon()
-    time.sleep(10)
+    time.sleep(1)
     while cancel == False:
         try:
             if check > 100:
