@@ -265,10 +265,9 @@ def showrow(n):
 # end showrow function
 ####################################
 
-def latcthAndDisplay():
+def latcth():
     gpio.output(L,1)
     gpio.output(L,0)
-    gpio.output(EN,1)
 
 ####################################
 # displayoff function
@@ -277,6 +276,9 @@ def latcthAndDisplay():
 ####################################
 def displayoff():
     gpio.output(EN, 0)
+
+def displayon():
+    gpio.output(EN, 1)
 
 
 ####################################

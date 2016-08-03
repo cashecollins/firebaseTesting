@@ -134,13 +134,14 @@ while True:
     # Continually output to the display until Ctrl-C
     #
     check = 0
+    showmatrix()
     while cancel == False:
         try:
             if check > 100:
                 fbs.get_async('/Users', None, callback=log_user)
                 check = 0;
             check += 1
-            showmatrix()
+
 
 
         except KeyboardInterrupt:
