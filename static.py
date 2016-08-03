@@ -68,7 +68,7 @@ while True:
             for col in range(80):
                 ldp.colourshift(matrix[row][col])
             ldp.showrow(row)
-        ldp.latch()
+            ldp.latch()
         ldp.displayon()
     # end def
 
