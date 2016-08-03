@@ -66,6 +66,7 @@ while True:
             for col in range(80):
                 ldp.colourshift(matrix[row][col])
             ldp.showrow(row)
+        ldp.latcthAndDisplay()
     # end def
 
     #
@@ -140,6 +141,7 @@ while True:
                 check = 0;
             check += 1
             showmatrix()
+            
 
         except KeyboardInterrupt:
             ldp.clear()
