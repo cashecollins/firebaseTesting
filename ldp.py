@@ -252,7 +252,7 @@ def showrow(n):
     gpio.output(B, 0)
     gpio.output(C, 0)
     gpio.output(D, 0)
-    
+
 
     # latch the data
 #    gpio.output(L, 1)
