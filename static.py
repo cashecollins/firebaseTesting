@@ -137,14 +137,13 @@ while True:
     # Continually output to the display until Ctrl-C
     #
     check = 0
-
+    showmatrix()
     while cancel == False:
         try:
             if check > 100:
                 #fbs.get_async('/Users', None, callback=log_user)
                 log_user([1,2,3,4,5])
                 check = 0
-            showmatrix()
             check += 1
 
 
