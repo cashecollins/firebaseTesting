@@ -141,7 +141,7 @@ while True:
                 check = 0;
             check += 1
             showmatrix()
-            
+
 
         except KeyboardInterrupt:
             ldp.clear()
