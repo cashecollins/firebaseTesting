@@ -281,9 +281,6 @@ def latch():
 # turns off the display 
 ####################################
 def displayoff():
-    gpio.output(EN, 0)
-
-def displayon():
     gpio.output(EN, 1)
 
 
