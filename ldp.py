@@ -265,7 +265,7 @@ def showrow(n):
 # end showrow function
 ####################################
 
-def latcth():
+def latch():
     gpio.output(L,1)
     gpio.output(L,0)
 
