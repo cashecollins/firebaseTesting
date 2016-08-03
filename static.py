@@ -69,9 +69,7 @@ while True:
             for col in range(80):
                 ldp.colourshift(matrix[row][col])
                 print matrix[row][col]
-        ldp.showrow(0)
-        ldp.showrow(1)
-        ldp.showrow(2)
+            ldp.showrow(row)
             #time.sleep(1)
             #ldp.latch()
             #time.sleep(1)
@@ -142,15 +140,15 @@ while True:
     #
     # Continually output to the display until Ctrl-C
     #
+
     check = 0
-    showmatrix()
-    time.sleep(1)
     while cancel == False:
         try:
             if check > 100:
                 #fbs.get_async('/Users', None, callback=log_user)
                 log_user([1,2,3,4,5])
                 check = 0
+            showmatrix()
             check += 1
 
 

@@ -170,7 +170,6 @@ def colourshift(n):
 # row_value = 0-7
 ####################################
 def showrow(n):
-    """
     if n == 7:
         gpio.output(A,1)
         gpio.output(B,1)
@@ -253,20 +252,13 @@ def showrow(n):
     gpio.output(C, 0)
     gpio.output(D, 0)
 
-
+    """
 
     # latch the data
     gpio.output(L, 1)
-    time.sleep(1)
-    print("check1")
     gpio.output(L, 0)
-    time.sleep(1)
-    print("check2")
     # display the row
-    #gpio.output(EN, 1)
-    time.sleep(1)
-    print 'yolo'
-    time.sleep(1)
+    gpio.output(EN, 1)
 
 
 ####################################
