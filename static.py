@@ -70,6 +70,7 @@ while True:
                 ldp.colourshift(matrix[row][col])
             for i in range(8):
                 ldp.showrow(i)
+                ldp.displayon()
             #time.sleep(1)
             #ldp.latch()
             #time.sleep(1)
