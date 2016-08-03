@@ -35,7 +35,7 @@ global count
 
 count = 0
 cancel = False
-reg_users = fbs.get('/extension', None)
+reg_users = fbs.get('/Users', None)
 #reg_users = [1,2,3,4,5]
 pprint(reg_users)
 
