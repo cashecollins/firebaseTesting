@@ -69,9 +69,9 @@ while True:
             for col in range(80):
                 ldp.colourshift(matrix[row][col])
                 print matrix[row][col]
-            ldp.showrow(0)
-            ldp.showrow(1)
-            ldp.showrow(2)
+        ldp.showrow(0)
+        ldp.showrow(1)
+        ldp.showrow(2)
             #time.sleep(1)
             #ldp.latch()
             #time.sleep(1)
