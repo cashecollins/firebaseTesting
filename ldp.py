@@ -265,6 +265,7 @@ def showrow(n):
     #gpio.output(EN, 1)
     time.sleep(1)
     print 'yolo'
+    time.sleep(1)
 
 
 ####################################
