@@ -72,7 +72,7 @@ while True:
             #time.sleep(1)
             #ldp.latch()
             #time.sleep(1)
-        #ldp.displayon()
+        ldp.displayon()
     # end def
 
     #
