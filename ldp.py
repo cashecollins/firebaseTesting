@@ -262,7 +262,7 @@ def showrow(n):
     time.sleep(1)
     print("check2")
     # display the row
-    gpio.output(EN, 1)
+    #gpio.output(EN, 1)
     time.sleep(1)
     print 'yolo'
 
