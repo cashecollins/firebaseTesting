@@ -155,7 +155,7 @@ def colourshift(n):
         gpio.output(R1, 1)
         gpio.output(G1, 1)
     gpio.output(S, 1)
-    gpio.output(S, 1)
+    gpio.output(S, 0)
     gpio.output(S, 1)
 
 
