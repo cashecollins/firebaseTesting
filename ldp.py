@@ -256,9 +256,13 @@ def showrow(n):
 
     # latch the data
     gpio.output(L, 1)
+    time.sleep(1)
     gpio.output(L, 0)
+    time.sleep(1)
     # display the row
     gpio.output(EN, 1)
+    time.sleep(1)
+    print 'yolo'
 
 
 ####################################
