@@ -70,9 +70,9 @@ while True:
                 ldp.colourshift(matrix[row][col])
             ldp.showrow(row)
             #time.sleep(1)
-            ldp.latch()
+            #ldp.latch()
             #time.sleep(1)
-        ldp.displayon()
+        #ldp.displayon()
     # end def
 
     #

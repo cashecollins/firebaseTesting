@@ -256,9 +256,9 @@ def showrow(n):
 
     # latch the data
     gpio.output(L, 1)
-#    gpio.output(L, 0)
-#    # display the row
-#    gpio.output(EN, 1)
+    gpio.output(L, 0)
+    # display the row
+    gpio.output(EN, 1)
 
 
 ####################################
