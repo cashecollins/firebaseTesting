@@ -63,13 +63,13 @@ while True:
     # function to read the matrix array and output the values to the display device
     #
     def showmatrix():
-        ldp.displayoff()
+        #ldp.displayoff()
         for row in range(8):
             for col in range(80):
                 ldp.colourshift(matrix[row][col])
             ldp.showrow(row)
-            ldp.latch()
-        ldp.displayon()
+            #ldp.latch()
+        #ldp.displayon()
     # end def
 
     #
