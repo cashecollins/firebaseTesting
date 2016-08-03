@@ -258,7 +258,7 @@ def showrow(n):
     gpio.output(L, 1)
     time.sleep(1)
     print("check1")
-    gpio.output(L, 1)
+    gpio.output(L, 0)
     time.sleep(1)
     print("check2")
     # display the row
